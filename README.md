@@ -17,13 +17,42 @@ sudo apt install build-essential gcc-riscv64-linux-gnu qemu-user gdb-multiarch
 
 ---
 
+## 📂 Project Structure
+
+The project is organized as follows:
+
+```bash
+/
+│
+├── src/        # Source code (assembly or C) to be compiled
+│   └── hello.s
+|   ...
+│
+├── dist/          # Object files (.o) and executables generated after compilation
+│
+├── Makefile       # Build instructions
+└── README.md
+```
+
+- src/: contains the source code to be compiled.
+- dist/: contains intermediate object files (.o) and final executables.
+
 ## 🏗️ Building the Project
 
 ### 🛠️ Assemble and Link (Assembly code)
 
-To compile the assembly code, run:
+You can choose which file to compile by setting the SOURCE_FILE variable. By default, the file hello will be compiled:
 
 ```bash
+# Compile the default hello.s file
+make
+```
+
+To compile a different file, set the SOURCE_FILE variable:
+
+```bash
+# Example: compile main.s
+export SOURCE_FILE=main
 make
 ```
 
